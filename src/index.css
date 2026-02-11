@@ -1,0 +1,48 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Architects+Daughter&display=swap');
+
+/* Colores */
+:root {
+  /* Mode 1 */
+  /* color */
+  --fondo: #ffffff;
+  --footer: #7e593d;
+  --horario: #7e593d;
+  --secciones: #d9cfc6;
+  --texto: #000000;
+  --texto-horario-footer: #ffffff;
+}
+
+/* Font */
+:root {
+  /* Mode 1 */
+  /* string */
+  --tipo-de-texto: Architects Daughter;
+}
+
+@layer base {
+  body {
+    background-color: var(--fondo);
+    color: var(--texto);
+    font-family: var(--tipo-de-texto), cursive;
+    transition: background-color 0.3s, color 0.3s;
+  }
+}
+
+@layer utilities {
+  @keyframes scroll {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-50%);
+    }
+  }
+
+  .animate-scroll {
+    animation: scroll 35s linear infinite;
+  }
+}
