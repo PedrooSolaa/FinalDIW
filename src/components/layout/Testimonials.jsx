@@ -33,7 +33,7 @@ const Testimonials = () => {
   return (
     <Section background="gray" padding="lg">
       <div className="text-center mb-12">
-        <Heading level={2} className="text-3xl md:text-4xl">
+        <Heading level={2} className="text-3xl md:text-4xl !text-black dark:!text-black" style={{ color: '#000' }}>
           Lo que dicen nuestros clientes
         </Heading>
       </div>
