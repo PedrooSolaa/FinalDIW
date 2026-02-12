@@ -14,12 +14,17 @@ export function useDarkMode() {
 
     // Aplicar el tema según la selección
     const applyTheme = () => {
+      const root = document.documentElement;
+      const body = document.body;
       if (theme === 'dark') {
-        document.documentElement.classList.add('dark');
+        root.classList.add('dark');
+        body.classList.add('dark');
       } else if (theme === 'light') {
-        document.documentElement.classList.remove('dark');
+        root.classList.remove('dark');
+        body.classList.remove('dark');
       } else {
-        document.documentElement.classList.toggle('dark', mediaQuery.matches);
+        root.classList.toggle('dark', mediaQuery.matches);
+        body.classList.toggle('dark', mediaQuery.matches);
       }
       localStorage.setItem('theme', theme);
     };
@@ -30,6 +35,7 @@ export function useDarkMode() {
     const handleSystemChange = (e) => {
       if (theme === 'system') {
         document.documentElement.classList.toggle('dark', e.matches);
+        document.body.classList.toggle('dark', e.matches);
       }
     };
 

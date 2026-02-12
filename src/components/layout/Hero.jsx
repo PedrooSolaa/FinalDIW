@@ -9,16 +9,16 @@ const Hero = () => {
   const images = [carrouselArriba, carrouselArriba2, carrouselArriba3];
   const slides = [
     {
-      title: "This is a paragraph text block",
-      description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis semper nulla at commodo aliquam. Maecenas eu cursus odio nunc fermentum velit sed.",
+      title: "Impulsa tu marca al siguiente nivel",
+      description: "Estrategias digitales, creatividad y resultados para que tu negocio destaque en el mundo online.",
     },
     {
-      title: "Transformamos tu negocio",
-      description: "Con estrategias de marketing digital innovadoras que generan resultados medibles y sostenibles.",
+      title: "Tu éxito digital, nuestra misión",
+      description: "Creamos soluciones de marketing, diseño y comunicación para hacer crecer tu empresa.",
     },
     {
-      title: "Impulsa tu marca",
-      description: "Alcanza tus objetivos con nuestro equipo experto en marketing y comunicación digital.",
+      title: "Conecta, impacta y crece",
+      description: "Atrae más clientes y haz que tu marca brille con nuestros servicios de marketing y diseño.",
     }
   ];
 
@@ -34,11 +34,7 @@ const Hero = () => {
     <section
       id="home"
       style={{
-        backgroundColor: 'var(--secciones)',
-        backgroundImage: `url(${images[currentSlide]})`,
-        backgroundSize: 'cover',
-        backgroundPosition: 'center',
-        backgroundRepeat: 'no-repeat',
+        backgroundColor: 'var(--secciones)'
       }}
       className="relative min-h-[400px] flex items-start justify-center pt-36 pb-12"
     >

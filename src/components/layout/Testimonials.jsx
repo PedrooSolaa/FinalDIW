@@ -33,7 +33,7 @@ const Testimonials = () => {
   return (
     <Section background="gray" padding="lg">
       <div className="text-center mb-12">
-        <Heading level={2} className="text-3xl md:text-4xl text-texto">
+        <Heading level={2} className="text-3xl md:text-4xl">
           Lo que dicen nuestros clientes
         </Heading>
       </div>
@@ -42,7 +42,7 @@ const Testimonials = () => {
         {testimonials.map((testimonial, index) => (
           <div
             key={index}
-            className="rounded-lg p-8 flex flex-col shadow-md bg-white text-texto"
+            className="rounded-lg p-8 flex flex-col shadow-md bg-white text-texto dark:bg-neutral-800 dark:text-white"
           >
             {/* Rating Stars */}
             <div className="flex gap-1 mb-4">
@@ -52,16 +52,16 @@ const Testimonials = () => {
             </div>
 
             {/* Comment */}
-            <p className="mb-6 flex-grow text-sm leading-relaxed text-black">
+            <p className="mb-6 flex-grow text-sm leading-relaxed text-black dark:text-white">
               "{testimonial.comment}"
             </p>
 
             {/* Author Info */}
             <div className="border-t pt-4 border-texto">
-              <p className="font-bold text-sm text-black">
+              <p className="font-bold text-sm text-black dark:text-white">
                 {testimonial.name}
               </p>
-              <p className="text-xs text-black">
+              <p className="text-xs text-black dark:text-white">
                 {testimonial.role}
               </p>
             </div>
@@ -69,15 +69,7 @@ const Testimonials = () => {
         ))}
       </div>
 
-      {/* Dots indicator */}
-      <div className="flex justify-center space-x-2 mt-8">
-        {[0, 1, 2].map((index) => (
-          <div
-            key={index}
-            className={`w-2 h-2 rounded-full ${index === 0 ? 'bg-texto' : 'bg-black/20'}`}
-          />
-        ))}
-      </div>
+      {/* ...dots indicator eliminado... */}
     </Section>
   );
 };

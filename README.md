@@ -1,16 +1,24 @@
-# React + Vite
+# Coffee Agency - Agencia de Marketing Digital
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Descripción del proyecto
 
-Currently, two official plugins are available:
+Coffee Agency es una web de agencia de marketing digital y servicios creativos. Ofrecemos soluciones integrales para impulsar la presencia online de negocios, combinando estrategias digitales, creatividad y tecnología. El sitio está desarrollado con React, Vite y Tailwind CSS, e incluye modo claro/oscuro, diseño responsive y componentes reutilizables.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Capturas de la Home
 
-## React Compiler
+### Modo Claro
+![Home en modo claro](./screenshots/light-full.png)
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+### Modo Oscuro
+![Home en modo oscuro](./screenshots/dark-full.png)
 
-## Expanding the ESLint configuration
+## Explicación breve del sistema de diseño
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+El sistema de diseño se basa en:
+- **Colores:** Variables CSS y Tailwind para mantener coherencia visual (paleta principal, fondo, footer, textos, etc.).
+- **Tipografía:** Fuente principal "Architects Daughter" para títulos y textos, aportando personalidad y legibilidad.
+- **Componentes reutilizables:** Secciones, botones, cards, testimonios y navbar, todos adaptados a modo claro/oscuro y responsivos.
+- **Modo oscuro:** Implementado con Tailwind (`darkMode: 'class'`) y un hook personalizado para alternar entre claro, oscuro y automático según el sistema.
+- **Espaciados y layout:** Uso de utilidades Tailwind para márgenes, paddings y grids, asegurando consistencia y adaptabilidad en todos los dispositivos.
+
+---

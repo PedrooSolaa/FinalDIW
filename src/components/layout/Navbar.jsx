@@ -1,8 +1,20 @@
-import React, { useState } from 'react';
-import logoPrincipal from '../../img/logoPrincipal.jpeg';
+import React, { useState, useEffect } from 'react';
+import logoHeader from '../../img/logoHeader.jpeg';
+import logoF from '../../img/logoF.png';
 
 const Navbar = ({ onToggleDarkMode, theme }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isDarkClass, setIsDarkClass] = useState(false);
+
+  useEffect(() => {
+    const checkDark = () => {
+      setIsDarkClass(document.documentElement.classList.contains('dark'));
+    };
+    checkDark();
+    const observer = new MutationObserver(checkDark);
+    observer.observe(document.documentElement, { attributes: true, attributeFilter: ['class'] });
+    return () => observer.disconnect();
+  }, []);
 
   const navLinks = [
     { name: 'Home', href: '#home' },
@@ -34,9 +46,9 @@ const Navbar = ({ onToggleDarkMode, theme }) => {
   };
 
   return (
-    <nav style={{backgroundColor: 'var(--fondo)'}} className="fixed top-0 left-0 right-0 z-50 shadow-sm">
+    <nav className="fixed top-0 left-0 right-0 z-50 shadow-sm bg-white dark:bg-neutral-900 dark:text-white transition-colors duration-300">
       {/* Top bar - Horario animado */}
-      <div style={{backgroundColor: 'var(--horario)', color: 'var(--texto-horario-footer)'}} className="overflow-hidden py-2 text-sm relative">
+      <div className="overflow-hidden py-2 text-sm relative bg-[var(--horario)] text-[var(--texto-horario-footer)] dark:bg-neutral-800 dark:text-white transition-colors duration-300">
         <div className="animate-scroll whitespace-nowrap inline-block">
           <span className="inline-block px-8">Lunes a Viernes: 10:30 am - 19:00 pm</span>
           <span className="inline-block px-8">Sábados: 10:30 am - 17:00 pm</span>
@@ -52,10 +64,14 @@ const Navbar = ({ onToggleDarkMode, theme }) => {
       
       {/* Main navbar */}
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
-        <div className="flex justify-between items-center h-16">
+        <div className="flex justify-between items-center h-16 dark:text-white">
           {/* Logo */}
           <div className="flex items-center">
-            <img src={logoPrincipal} alt="Logo" className="h-8 md:h-10 object-contain" />
+            <img
+              src={isDarkClass ? logoF : logoHeader}
+              alt="Logo"
+              className="h-12 md:h-16 object-contain transition-all duration-300"
+            />
           </div>
 
           {/* Desktop Navigation */}
@@ -64,8 +80,7 @@ const Navbar = ({ onToggleDarkMode, theme }) => {
               <a
                 key={link.name}
                 href={link.href}
-                style={{color: 'var(--texto)'}}
-                className="hover:opacity-70 transition-opacity"
+                className="hover:opacity-70 transition-opacity text-[var(--texto)] dark:text-white"
               >
                 {link.name}
               </a>
@@ -76,21 +91,21 @@ const Navbar = ({ onToggleDarkMode, theme }) => {
           <div className="flex items-center space-x-6">
             <div className="flex items-center space-x-2">
               {/* Search */}
-              <button style={{color: 'var(--texto)'}} className="p-2 hover:opacity-70 rounded transition-opacity">
+              <button className="p-2 hover:opacity-70 rounded transition-opacity text-[var(--texto)] dark:text-white">
                 <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
                 </svg>
               </button>
 
               {/* User */}
-              <button style={{color: 'var(--texto)'}} className="p-2 hover:opacity-70 rounded transition-opacity">
+              <button className="p-2 hover:opacity-70 rounded transition-opacity text-[var(--texto)] dark:text-white">
                 <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
                 </svg>
               </button>
 
               {/* Cart */}
-              <button style={{color: 'var(--texto)'}} className="p-2 hover:opacity-70 rounded transition-opacity">
+              <button className="p-2 hover:opacity-70 rounded transition-opacity text-[var(--texto)] dark:text-white">
                 <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
                 </svg>
@@ -100,8 +115,7 @@ const Navbar = ({ onToggleDarkMode, theme }) => {
             {/* Dark mode toggle */}
             <button
               onClick={onToggleDarkMode}
-              style={{color: 'var(--texto)'}}
-              className="p-2 hover:opacity-70 rounded transition-opacity flex items-center gap-1"
+              className="p-2 hover:opacity-70 rounded transition-opacity flex items-center gap-1 text-[var(--texto)] dark:text-white"
               aria-label="Toggle theme"
               title={theme === 'light' ? 'Modo claro' : theme === 'dark' ? 'Modo oscuro' : 'Auto (sistema)'}
             >
