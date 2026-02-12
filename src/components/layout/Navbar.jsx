@@ -46,7 +46,10 @@ const Navbar = ({ onToggleDarkMode, theme }) => {
   };
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 shadow-sm bg-white dark:bg-neutral-900 dark:text-white transition-colors duration-300">
+    <nav
+      className="fixed top-0 left-0 right-0 z-50 shadow-sm bg-white dark:text-white transition-colors duration-300"
+      style={{ backgroundColor: document.documentElement.classList.contains('dark') ? 'var(--footer)' : undefined }}
+    >
       {/* Top bar - Horario animado */}
       <div className="overflow-hidden py-2 text-sm relative bg-[var(--horario)] text-[var(--texto-horario-footer)] dark:bg-neutral-800 dark:text-white transition-colors duration-300">
         <div className="animate-scroll whitespace-nowrap inline-block">
